@@ -1,0 +1,9 @@
+res://Scenes/match_pieces.tscn
+res://Scripts/match_pieces.gd
+res://Scenes/critical_piece.tscn
+res://Scenes/attack_piece.tscn
+res://Scenes/energy_piece.tscn
+res://Scenes/shield_piece.tscn
+res://Scenes/robot.tscn
+res://Scenes/repair_piece.tscn
+res://Scenes/game_window.tscn

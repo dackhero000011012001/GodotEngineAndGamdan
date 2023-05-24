@@ -1,0 +1,503 @@
+[gd_scene load_steps=39 format=3 uid="uid://1bj4mf4wt3q6"]
+
+[ext_resource type="Script" path="res://Scripts/game_window.gd" id="1_6qg84"]
+[ext_resource type="Texture2D" uid="uid://bcqmbawjhafov" path="res://Art/TempBackground.png" id="1_dwy5y"]
+[ext_resource type="Script" path="res://Scripts/grid.gd" id="2_ojpqq"]
+[ext_resource type="Texture2D" uid="uid://cqomuox24hoyc" path="res://Art/Game GUI/Game Items/MatchField.png" id="2_vv7y1"]
+[ext_resource type="Texture2D" uid="uid://cus1wwdo1dnou" path="res://Art/Game GUI/Game Items/battle-bg.png" id="3_5lupb"]
+[ext_resource type="PackedScene" uid="uid://boy0wpdkqb3ei" path="res://Scenes/enemy.tscn" id="4_fjdx7"]
+[ext_resource type="Script" path="res://Scripts/health_bar.gd" id="4_g52x1"]
+[ext_resource type="Texture2D" uid="uid://h7ylfvry8ycc" path="res://Art/Game GUI/Game Items/HealthBar2.png" id="5_3bjsu"]
+[ext_resource type="PackedScene" uid="uid://whoxmdg1ik6h" path="res://Scenes/robot.tscn" id="5_g1i87"]
+[ext_resource type="Texture2D" uid="uid://dh84c00usg0io" path="res://Art/Game GUI/Game Items/Khung.png" id="5_ggt2r"]
+[ext_resource type="Texture2D" uid="uid://bgi0a33bgrwfp" path="res://Art/Game GUI/Game Items/btmhud2.png" id="6_mntjc"]
+[ext_resource type="Texture2D" uid="uid://77wbpdme5x0s" path="res://Art/Game GUI/Game Items/HealthBar1.png" id="6_nom5h"]
+[ext_resource type="Script" path="res://Scripts/energy_bar.gd" id="7_1h7u0"]
+[ext_resource type="Texture2D" uid="uid://bhyy4tmamwcr6" path="res://Art/Game GUI/Game Items/lazer.png" id="7_2ip45"]
+[ext_resource type="Texture2D" uid="uid://qsycqqlm83cv" path="res://Art/Game GUI/Game Items/critical.png" id="8_olgya"]
+[ext_resource type="Texture2D" uid="uid://csv00by27ro8x" path="res://Art/Game GUI/Game Items/Timer.png" id="8_smhfu"]
+[ext_resource type="Texture2D" uid="uid://b8t7khppudyc6" path="res://Art/Game GUI/Game Items/critical2.png" id="9_fne1w"]
+[ext_resource type="Script" path="res://Scripts/enemy_health_bar.gd" id="10_8d64t"]
+[ext_resource type="Texture2D" uid="uid://bhxinesemckkn" path="res://Art/Robot/Enemies/robotland.png" id="10_h3sen"]
+[ext_resource type="Texture2D" uid="uid://u5iy4vp7f78e" path="res://Art/Game GUI/Game Items/EnemyHealthBar1.png" id="10_r6pq5"]
+[ext_resource type="Texture2D" uid="uid://b2f30udyqtvmm" path="res://Art/Game GUI/Game Items/enemy_spr_shield .png" id="11_c2mdl"]
+[ext_resource type="Texture2D" uid="uid://cydvivi4saofm" path="res://Art/Game GUI/Game Items/EnemyHealthBar2.png" id="11_on2i4"]
+[ext_resource type="Texture2D" uid="uid://tfxhvpklt3a2" path="res://Art/Game GUI/Game Items/Energybar2.png" id="15_1lce1"]
+[ext_resource type="Texture2D" uid="uid://b1rkdtnh8qeg6" path="res://Art/Robot/Alliance/take1.png" id="15_8t3ob"]
+[ext_resource type="FontFile" uid="uid://c48k2twxy3psw" path="res://Font/static/Exo2-SemiBold.ttf" id="16_0hrnt"]
+[ext_resource type="Texture2D" uid="uid://dfxl16620knww" path="res://Art/Game GUI/Game Items/spr_shield.png" id="17_ifmd1"]
+[ext_resource type="Script" path="res://Scripts/critical_progress_bar.gd" id="18_bp5wg"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uxxne"]
+
+[sub_resource type="Animation" id="Animation_p5vs8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Enemy/enemy:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Enemy/enemy:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(128, 124)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Robot/robot:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(117, 287)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Robot/robot_shield:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Enemy/enemy_shield:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_p5ecc"]
+resource_name = "enemy_attack"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Enemy/enemy:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(128, 124), Vector2(-40, 124), Vector2(128, 124)]
+}
+
+[sub_resource type="Animation" id="Animation_lv083"]
+resource_name = "enemy_damaged"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Enemy/enemy:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_txh6u"]
+resource_name = "enemy_died"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Enemy/enemy:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_f0vcq"]
+resource_name = "enemy_shield_off"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Enemy/enemy_shield:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_c25h8"]
+resource_name = "enemy_shield_on"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Enemy/enemy_shield:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_x4jhh"]
+resource_name = "robot_attack"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Robot/robot:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(117, 287), Vector2(203, 192), Vector2(323, 287), Vector2(117, 287)]
+}
+
+[sub_resource type="Animation" id="Animation_d0evb"]
+resource_name = "robot_shield_off"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Robot/robot_shield:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_dk2pq"]
+resource_name = "robot_shield_on"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Robot/robot_shield:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tuypo"]
+_data = {
+"RESET": SubResource("Animation_p5vs8"),
+"enemy_attack": SubResource("Animation_p5ecc"),
+"enemy_damaged": SubResource("Animation_lv083"),
+"enemy_died": SubResource("Animation_txh6u"),
+"enemy_shield_off": SubResource("Animation_f0vcq"),
+"enemy_shield_on": SubResource("Animation_c25h8"),
+"robot_attack": SubResource("Animation_x4jhh"),
+"robot_shield_off": SubResource("Animation_d0evb"),
+"robot_shield_on": SubResource("Animation_dk2pq")
+}
+
+[node name="game_window" type="Node2D"]
+script = ExtResource("1_6qg84")
+
+[node name="background" type="TextureRect" parent="."]
+offset_right = 576.0
+offset_bottom = 1024.0
+texture = ExtResource("1_dwy5y")
+
+[node name="battle_bg" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_5lupb")
+
+[node name="field" type="TextureRect" parent="."]
+offset_left = 29.0
+offset_top = 429.0
+offset_right = 547.0
+offset_bottom = 947.0
+grow_vertical = 2
+texture = ExtResource("2_vv7y1")
+
+[node name="tophud" type="TextureRect" parent="."]
+offset_left = -1.0
+offset_top = 344.0
+offset_right = 579.0
+offset_bottom = 432.0
+texture = ExtResource("5_ggt2r")
+
+[node name="bottomhud" type="TextureRect" parent="."]
+offset_top = 944.0
+offset_right = 576.0
+offset_bottom = 1023.0
+texture = ExtResource("6_mntjc")
+
+[node name="lazer" type="TextureRect" parent="."]
+offset_top = 424.0
+offset_right = 576.0
+offset_bottom = 946.0
+texture = ExtResource("7_2ip45")
+
+[node name="Timer" type="Node2D" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="Timer"]
+offset_left = 249.0
+offset_top = 335.0
+offset_right = 327.0
+offset_bottom = 382.0
+texture = ExtResource("8_smhfu")
+
+[node name="Enemy" parent="." instance=ExtResource("4_fjdx7")]
+position = Vector2(312, 124)
+damage = 12
+
+[node name="enemy" type="Sprite2D" parent="Enemy"]
+position = Vector2(128, 124)
+scale = Vector2(3.4375, 3.4375)
+texture = ExtResource("10_h3sen")
+
+[node name="enemy_shield" type="TextureRect" parent="Enemy"]
+modulate = Color(1, 1, 1, 0)
+offset_left = 40.0
+offset_top = 48.0
+offset_right = 596.0
+offset_bottom = 604.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("11_c2mdl")
+
+[node name="health_bar" type="Node2D" parent="Enemy"]
+position = Vector2(-2, 0)
+script = ExtResource("10_8d64t")
+
+[node name="TextureProgressBar2" type="TextureProgressBar" parent="Enemy/health_bar"]
+offset_left = 149.0
+offset_top = 170.0
+offset_right = 238.0
+offset_bottom = 258.0
+min_value = 40.0
+value = 40.0
+fill_mode = 5
+texture_under = ExtResource("11_on2i4")
+texture_progress = ExtResource("11_on2i4")
+tint_under = Color(0.396078, 0.396078, 0.396078, 1)
+tint_progress = Color(1, 0, 0.133333, 1)
+radial_initial_angle = 180.0
+radial_fill_degrees = 270.0
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Enemy/health_bar"]
+offset_left = 12.0
+offset_top = 240.0
+offset_right = 196.0
+offset_bottom = 258.0
+scale = Vector2(1.001, 1)
+max_value = 40.0
+texture_under = ExtResource("10_r6pq5")
+texture_progress = ExtResource("10_r6pq5")
+tint_under = Color(0.396078, 0.396078, 0.396078, 1)
+tint_progress = Color(1, 0, 0.133333, 1)
+
+[node name="HSlider" type="HSlider" parent="Enemy/health_bar"]
+visible = false
+offset_left = 20.0
+offset_top = -30.0
+offset_right = 190.0
+offset_bottom = -14.0
+
+[node name="Robot" parent="." instance=ExtResource("5_g1i87")]
+modulate = Color(1, 1, 1, 0.945098)
+position = Vector2(29, -32)
+
+[node name="robot" type="Sprite2D" parent="Robot"]
+position = Vector2(117, 287)
+scale = Vector2(0.294092, 0.294092)
+texture = ExtResource("15_8t3ob")
+
+[node name="robot_shield" type="TextureRect" parent="Robot"]
+modulate = Color(1, 1, 1, 0)
+offset_left = 27.0
+offset_top = 200.0
+offset_right = 583.0
+offset_bottom = 756.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("17_ifmd1")
+
+[node name="critical_bar" type="Node2D" parent="Robot"]
+position = Vector2(-29, 32)
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Robot/critical_bar"]
+offset_left = 49.0
+offset_top = 314.0
+offset_right = 97.0
+offset_bottom = 362.0
+fill_mode = 3
+texture_over = ExtResource("8_olgya")
+texture_progress = ExtResource("9_fne1w")
+script = ExtResource("18_bp5wg")
+
+[node name="Label" type="Label" parent="Robot/critical_bar/TextureProgressBar"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 16.0
+offset_right = 38.0
+offset_bottom = 33.0
+theme_override_fonts/font = ExtResource("16_0hrnt")
+theme_override_font_sizes/font_size = 11
+theme_override_styles/normal = SubResource("StyleBoxTexture_uxxne")
+text = "0/100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="health_bar" type="Node2D" parent="Robot"]
+position = Vector2(-29, 32)
+script = ExtResource("4_g52x1")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Robot/health_bar"]
+offset_left = 29.0
+offset_top = 294.0
+offset_right = 117.0
+offset_bottom = 382.0
+min_value = 40.0
+value = 40.0
+fill_mode = 4
+texture_under = ExtResource("6_nom5h")
+texture_progress = ExtResource("6_nom5h")
+tint_under = Color(0.396078, 0.396078, 0.396078, 1)
+tint_progress = Color(0, 1, 0.305882, 1)
+radial_initial_angle = 180.0
+radial_fill_degrees = 270.0
+
+[node name="TextureProgressBar2" type="TextureProgressBar" parent="Robot/health_bar"]
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 72.0
+offset_top = 364.0
+offset_right = 254.0
+offset_bottom = 382.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 8
+max_value = 40.0
+fill_mode = 1
+texture_under = ExtResource("5_3bjsu")
+texture_progress = ExtResource("5_3bjsu")
+tint_under = Color(0.396078, 0.396078, 0.396078, 1)
+tint_progress = Color(0, 1, 0.305882, 1)
+
+[node name="HSlider" type="HSlider" parent="Robot/health_bar"]
+visible = false
+modulate = Color(0, 1, 1, 1)
+offset_left = 29.0
+offset_top = 72.0
+offset_right = 248.0
+offset_bottom = 88.0
+
+[node name="energy_bar" type="Node2D" parent="Robot"]
+position = Vector2(-29, 32)
+script = ExtResource("7_1h7u0")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Robot/energy_bar"]
+offset_left = 99.0
+offset_top = 342.0
+offset_right = 223.0
+offset_bottom = 360.0
+fill_mode = 1
+texture_under = ExtResource("15_1lce1")
+texture_progress = ExtResource("15_1lce1")
+tint_under = Color(1, 1, 1, 0.498039)
+
+[node name="Label" type="Label" parent="Robot/energy_bar/TextureProgressBar"]
+layout_mode = 0
+offset_left = 44.0
+offset_top = -2.0
+offset_right = 90.0
+offset_bottom = 21.0
+theme_override_fonts/font = ExtResource("16_0hrnt")
+text = "0/100"
+
+[node name="HSlider" type="HSlider" parent="Robot/energy_bar"]
+visible = false
+offset_left = 29.0
+offset_top = 96.0
+offset_right = 205.0
+offset_bottom = 112.0
+
+[node name="grid" type="Node2D" parent="."]
+script = ExtResource("2_ojpqq")
+width = 8
+height = 8
+x_start = 64
+y_start = 912
+offset = 64
+y_offset = 2
+
+[node name="destroy_time" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="collapse_time" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[node name="refill_time" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[node name="change_time" type="Timer" parent="."]
+one_shot = true
+
+[node name="robot_turn" type="Timer" parent="."]
+wait_time = 0.4
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_tuypo")
+}
+
+[connection signal="value_changed" from="Enemy/health_bar/HSlider" to="Enemy/health_bar" method="_on_h_slider_value_changed"]
+[connection signal="value_changed" from="Robot/health_bar/HSlider" to="Robot/health_bar" method="_on_h_slider_value_changed"]
+[connection signal="value_changed" from="Robot/energy_bar/HSlider" to="Robot/energy_bar" method="_on_h_slider_value_changed"]
+[connection signal="end_turn" from="grid" to="." method="_on_grid_end_turn"]
+[connection signal="timeout" from="destroy_time" to="grid" method="_on_destroy_time_timeout"]
+[connection signal="timeout" from="collapse_time" to="grid" method="_on_collapse_time_timeout"]
+[connection signal="timeout" from="refill_time" to="grid" method="_on_refill_time_timeout"]
+[connection signal="timeout" from="change_time" to="." method="_on_change_time_timeout"]
+[connection signal="timeout" from="robot_turn" to="." method="_on_robot_turn_timeout"]
+[connection signal="animation_changed" from="AnimationPlayer" to="." method="_on_animation_player_animation_changed"]
