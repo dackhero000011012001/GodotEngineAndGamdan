@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://d3e3vs5apsn32"]
+
+[ext_resource type="PackedScene" uid="uid://ct62loeht75l" path="res://Scenes/match_pieces.tscn" id="1_tosuf"]
+[ext_resource type="Texture2D" uid="uid://ub7eg7sfyu4n" path="res://Art/Game GUI/Game Items/Macth Items/Energy.png" id="2_h66lc"]
+
+[node name="energy_piece" instance=ExtResource("1_tosuf")]
+type = "energy"
+
+[node name="Sprite2D" parent="Area2D" index="0"]
+texture = ExtResource("2_h66lc")
